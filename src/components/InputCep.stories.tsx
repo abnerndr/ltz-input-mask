@@ -1,10 +1,10 @@
-import InputZipCode, { InputZipCodeProps } from "./InputZipCode";
+import InputCep, { InputCepProps } from "./InputCep";
 import { Meta, StoryObj } from "@storybook/react";
 
 export default {
   title: "Input/InputZipCode",
-  component: InputZipCode,
-} as Meta<InputZipCodeProps>;
+  component: InputCep,
+} as Meta<InputCepProps>;
 
 export const Default: StoryObj = {
   args: {

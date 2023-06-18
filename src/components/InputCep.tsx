@@ -1,17 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { InputHTMLAttributes } from "react";
 
-function currency(e: React.FormEvent<HTMLInputElement>) {
+function cep(e: React.FormEvent<HTMLInputElement>) {
+  e.currentTarget.maxLength = 9;
   let value = e.currentTarget.value;
   value = value.replace(/\D/g, "");
-  value = value.replace(/(\d)(\d{2})$/, "$1,$2");
-  value = value.replace(/(?=(\d{3})+(\D))\B/g, ".");
-
+  value = value.replace(/^(\d{5})(\d)/, "$1-$2");
   e.currentTarget.value = value;
   return e;
 }
 
-export interface InputCurrencyProps
+export interface InputCepProps
   extends InputHTMLAttributes<HTMLInputElement> {
   prefix?: string;
   label?: string;
@@ -20,7 +19,7 @@ export interface InputCurrencyProps
   placeholder?: string;
 }
 
-const InputCurrency: React.FC<InputCurrencyProps> = ({
+const InputCep: React.FC<InputCepProps> = ({
   prefix,
   id,
   name,
@@ -39,11 +38,11 @@ const InputCurrency: React.FC<InputCurrencyProps> = ({
       <div className="mt-2">
         <input
           {...props}
-          onKeyUp={(e) => currency(e)}
+          onKeyUp={(e) => cep(e)}
           type="text"
           name={name}
           id={id}
-          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           placeholder={placeholder}
         />
       </div>
@@ -51,4 +50,4 @@ const InputCurrency: React.FC<InputCurrencyProps> = ({
   );
 };
 
-export default InputCurrency;
+export default InputCep;

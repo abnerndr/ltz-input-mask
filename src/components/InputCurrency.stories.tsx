@@ -8,10 +8,10 @@ export default {
 
 export const Default: StoryObj = {
   args: {
-    id: "cep",
-    name: "cep",
-    placeholder: "",
-    label: "cep",
+    id: "currency",
+    name: "currency",
+    placeholder: "R$",
+    label: "currency",
     prefix: "",
   },
 };
