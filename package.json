@@ -1,7 +1,7 @@
 {
   "name": "ltz-input-mask",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "author": {
     "name": "abner.dev",
@@ -19,7 +19,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
-    
+
   },
   "dependencies": {
     "@storybook/addons": "^7.0.22",
