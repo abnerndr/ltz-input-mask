@@ -1,10 +1,10 @@
-import InputZipCode, { InputZipCodeProps } from "./InputZipCode";
+import InputCurrency, { InputCurrencyProps } from "./InputCurrency";
 import { Meta, StoryObj } from "@storybook/react";
 
 export default {
-  title: "Input/InputZipCode",
-  component: InputZipCode,
-} as Meta<InputZipCodeProps>;
+  title: "Input/InputCurrency",
+  component: InputCurrency,
+} as Meta<InputCurrencyProps>;
 
 export const Default: StoryObj = {
   args: {

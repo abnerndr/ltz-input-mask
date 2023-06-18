@@ -1,16 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { InputHTMLAttributes } from "react";
 
-function cep(e: React.FormEvent<HTMLInputElement>) {
-  e.currentTarget.maxLength = 9;
+function currency(e: React.FormEvent<HTMLInputElement>) {
   let value = e.currentTarget.value;
   value = value.replace(/\D/g, "");
-  value = value.replace(/^(\d{5})(\d)/, "$1-$2");
+  value = value.replace(/(\d)(\d{2})$/, "$1,$2");
+  value = value.replace(/(?=(\d{3})+(\D))\B/g, ".");
+
   e.currentTarget.value = value;
   return e;
 }
 
-export interface InputZipCodeProps
+export interface InputCurrencyProps
   extends InputHTMLAttributes<HTMLInputElement> {
   prefix?: string;
   label?: string;
@@ -19,7 +20,7 @@ export interface InputZipCodeProps
   placeholder?: string;
 }
 
-const InputZipCode: React.FC<InputZipCodeProps> = ({
+const InputCurrency: React.FC<InputCurrencyProps> = ({
   prefix,
   id,
   name,
@@ -38,7 +39,7 @@ const InputZipCode: React.FC<InputZipCodeProps> = ({
       <div className="mt-2">
         <input
           {...props}
-          onKeyUp={(e) => cep(e)}
+          onKeyUp={(e) => currency(e)}
           type="text"
           name={name}
           id={id}
@@ -50,4 +51,4 @@ const InputZipCode: React.FC<InputZipCodeProps> = ({
   );
 };
 
-export default InputZipCode;
+export default InputCurrency;
